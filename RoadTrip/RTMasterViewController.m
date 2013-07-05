@@ -11,7 +11,7 @@
 #import "RTDetailViewController.h"
 
 @interface RTMasterViewController () {
-    NSMutableArray *_objects;
+  NSMutableArray *_objects;
 }
 @end
 
@@ -19,22 +19,28 @@
 
 - (void)awakeFromNib
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        self.clearsSelectionOnViewWillAppear = NO;
-        self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
-    }
-    [super awakeFromNib];
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    self.clearsSelectionOnViewWillAppear = NO;
+    self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+  }
+  [super awakeFromNib];
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	}
+  [super viewDidLoad];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+  NSLog(@"Master view did appear");
+}
+
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
 }
 
 
