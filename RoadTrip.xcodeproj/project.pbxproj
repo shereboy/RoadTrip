@@ -56,6 +56,8 @@
 		2FC9805317870615003E13C0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC9805217870615003E13C0 /* CoreData.framework */; };
 		2FC9806817870754003E13C0 /* Trucks.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9806717870754003E13C0 /* Trucks.m */; };
 		2FC9806B17870755003E13C0 /* Driver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9806A17870755003E13C0 /* Driver.m */; };
+		2FC9806E17871348003E13C0 /* RTDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9806D17871348003E13C0 /* RTDevice.m */; };
+		2FC98071178714BA003E13C0 /* RTBrand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC98070178714BA003E13C0 /* RTBrand.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +119,10 @@
 		2FC9806717870754003E13C0 /* Trucks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trucks.m; sourceTree = "<group>"; };
 		2FC9806917870754003E13C0 /* Driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Driver.h; sourceTree = "<group>"; };
 		2FC9806A17870755003E13C0 /* Driver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Driver.m; sourceTree = "<group>"; };
+		2FC9806C17871348003E13C0 /* RTDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDevice.h; sourceTree = "<group>"; };
+		2FC9806D17871348003E13C0 /* RTDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTDevice.m; sourceTree = "<group>"; };
+		2FC9806F178714BA003E13C0 /* RTBrand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTBrand.h; sourceTree = "<group>"; };
+		2FC98070178714BA003E13C0 /* RTBrand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTBrand.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +196,10 @@
 				2FC9806A17870755003E13C0 /* Driver.m */,
 				2FC9806617870754003E13C0 /* Trucks.h */,
 				2FC9806717870754003E13C0 /* Trucks.m */,
+				2FC9806C17871348003E13C0 /* RTDevice.h */,
+				2FC9806D17871348003E13C0 /* RTDevice.m */,
+				2FC9806F178714BA003E13C0 /* RTBrand.h */,
+				2FC98070178714BA003E13C0 /* RTBrand.m */,
 			);
 			path = RoadTrip;
 			sourceTree = "<group>";
@@ -345,6 +355,8 @@
 				2FC98048178702EB003E13C0 /* TestDrive.xcdatamodeld in Sources */,
 				2FC9806817870754003E13C0 /* Trucks.m in Sources */,
 				2FC9806B17870755003E13C0 /* Driver.m in Sources */,
+				2FC9806E17871348003E13C0 /* RTDevice.m in Sources */,
+				2FC98071178714BA003E13C0 /* RTBrand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
