@@ -52,6 +52,10 @@
 		2F5075AA1785935B0010910A /* tolga72.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F5075A91785935B0010910A /* tolga72.png */; };
 		2F5075AC1785935F0010910A /* tolga144.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F5075AB1785935F0010910A /* tolga144.png */; };
 		2FC980451786FC3E003E13C0 /* RTTestDriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC980441786FC3E003E13C0 /* RTTestDriveViewController.m */; };
+		2FC98048178702EB003E13C0 /* TestDrive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FC98046178702EB003E13C0 /* TestDrive.xcdatamodeld */; };
+		2FC9805317870615003E13C0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC9805217870615003E13C0 /* CoreData.framework */; };
+		2FC9806817870754003E13C0 /* Trucks.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9806717870754003E13C0 /* Trucks.m */; };
+		2FC9806B17870755003E13C0 /* Driver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9806A17870755003E13C0 /* Driver.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +111,12 @@
 		2F5075AB1785935F0010910A /* tolga144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tolga144.png; sourceTree = "<group>"; };
 		2FC980431786FC3E003E13C0 /* RTTestDriveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTTestDriveViewController.h; sourceTree = "<group>"; };
 		2FC980441786FC3E003E13C0 /* RTTestDriveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTTestDriveViewController.m; sourceTree = "<group>"; };
+		2FC98047178702EB003E13C0 /* TestDrive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestDrive.xcdatamodel; sourceTree = "<group>"; };
+		2FC9805217870615003E13C0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2FC9806617870754003E13C0 /* Trucks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trucks.h; sourceTree = "<group>"; };
+		2FC9806717870754003E13C0 /* Trucks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trucks.m; sourceTree = "<group>"; };
+		2FC9806917870754003E13C0 /* Driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Driver.h; sourceTree = "<group>"; };
+		2FC9806A17870755003E13C0 /* Driver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Driver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FC9805317870615003E13C0 /* CoreData.framework in Frameworks */,
 				2F50751F178565280010910A /* UIKit.framework in Frameworks */,
 				2F507521178565280010910A /* Foundation.framework in Frameworks */,
 				2F507523178565280010910A /* CoreGraphics.framework in Frameworks */,
@@ -126,6 +137,7 @@
 		2F507512178565280010910A = {
 			isa = PBXGroup;
 			children = (
+				2FC9805217870615003E13C0 /* CoreData.framework */,
 				2FC980431786FC3E003E13C0 /* RTTestDriveViewController.h */,
 				2FC980441786FC3E003E13C0 /* RTTestDriveViewController.m */,
 				2F5075AB1785935F0010910A /* tolga144.png */,
@@ -173,6 +185,11 @@
 				2F50753F178565280010910A /* RTDetailViewController.h */,
 				2F507540178565280010910A /* RTDetailViewController.m */,
 				2F507525178565280010910A /* Supporting Files */,
+				2FC98046178702EB003E13C0 /* TestDrive.xcdatamodeld */,
+				2FC9806917870754003E13C0 /* Driver.h */,
+				2FC9806A17870755003E13C0 /* Driver.m */,
+				2FC9806617870754003E13C0 /* Trucks.h */,
+				2FC9806717870754003E13C0 /* Trucks.m */,
 			);
 			path = RoadTrip;
 			sourceTree = "<group>";
@@ -325,6 +342,9 @@
 				2F50753E178565280010910A /* RTMasterViewController.m in Sources */,
 				2F507541178565280010910A /* RTDetailViewController.m in Sources */,
 				2FC980451786FC3E003E13C0 /* RTTestDriveViewController.m in Sources */,
+				2FC98048178702EB003E13C0 /* TestDrive.xcdatamodeld in Sources */,
+				2FC9806817870754003E13C0 /* Trucks.m in Sources */,
+				2FC9806B17870755003E13C0 /* Driver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +480,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2FC98046178702EB003E13C0 /* TestDrive.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2FC98047178702EB003E13C0 /* TestDrive.xcdatamodel */,
+			);
+			currentVersion = 2FC98047178702EB003E13C0 /* TestDrive.xcdatamodel */;
+			path = TestDrive.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2F507513178565280010910A /* Project object */;
 }
