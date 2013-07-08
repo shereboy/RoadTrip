@@ -16,13 +16,28 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   // Override point for customization after application launch.
+  
+  UINavigationController *navigationController;
+  
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
   {
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-    splitViewController.delegate = (id)navigationController.topViewController;
+    //UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+    //splitViewController.delegate = (id)navigationController.topViewController;
+    splitViewController.presentsWithGesture = NO;
+    UINavigationController *detailNavigationController = [splitViewController.viewControllers lastObject];
+    
+    splitViewController.delegate = (id) detailNavigationController.topViewController;
+    
+    navigationController = [splitViewController.viewControllers objectAtIndex:0];
+  }
+  else
+  {
+    navigationController = (UINavigationController *) [[self window] rootViewController];
   }
   
+  
+  // NETWORK STATUS
   
   NetworkStatus networkStatus = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
   
@@ -33,6 +48,19 @@
     [alert show];
   
   }
+  
+  [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
+  
+  [navigationController navigationBar].barStyle = UIBarStyleBlack;
+  
+  [[navigationController navigationBar] setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor yellowColor] forKey:UITextAttributeTextColor ]];
+
+  [[UIButton appearance] setTitleColor:[UIColor greenColor] forState: UIControlStateNormal];
+  
+  [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes: [NSDictionary dictionaryWithObject:[UIColor yellowColor]  forKey:UITextAttributeTextColor] forState:UIControlStateNormal];
+
+  
+  
   
   return YES;
 }
