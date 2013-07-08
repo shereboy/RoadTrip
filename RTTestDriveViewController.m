@@ -19,16 +19,16 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  if (self) {
+    // Custom initialization
+  }
+  return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
 	// Do any additional setup after loading the view.
   
 }
@@ -40,8 +40,8 @@
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)TestDriveButton:(id)sender {
@@ -51,6 +51,21 @@
 {
   [textField resignFirstResponder];
   return YES;
+}
+
+-(IBAction)textFieldDidBeginEditing:(UITextField *)textField:(id)sender
+{
+  // NSLog ((UITextField *)id . value);
+  NSLog(@"text field is being edited");
+
+}
+
+-(IBAction)textFieldDidEndEditing:(UITextField *)textField:(id)sender
+{
+  // NSLog ( @"ali " @"veli " @"49 " @"50" );
+   //NSLog (textField.text);
+  
+  NSLog([NSString stringWithFormat:@"%@%@%@",@"deger: ",textField.text]);
 }
 
 @end

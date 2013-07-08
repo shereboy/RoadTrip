@@ -153,6 +153,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="textFieldDidBeginEditing::" destination="Yfu-Te-QTZ" eventType="editingDidBegin" id="IKp-Rj-7JM"/>
+                                    <action selector="textFieldDidBeginEditing::" destination="Yfu-Te-QTZ" eventType="valueChanged" id="QL5-s2-vXA"/>
+                                    <action selector="textFieldDidEndEditing::" destination="Yfu-Te-QTZ" eventType="editingDidEnd" id="9tS-Vh-Ppu"/>
                                     <outlet property="delegate" destination="Yfu-Te-QTZ" id="oCQ-tb-RQA"/>
                                 </connections>
                             </textField>
@@ -207,25 +210,6 @@
         <image name="CarImage.png" width="50" height="100"/>
         <image name="SeeTheUSA_iPad.png" width="574" height="768"/>
     </resources>
-    <classes>
-        <class className="RTDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RTDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="RTMasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RTMasterViewController.h"/>
-        </class>
-        <class className="RTTestDriveViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RTTestDriveViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="TestDriveButton:"/>
-                <relationship kind="outlet" name="TestTextBox" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="TestTextBox2" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
