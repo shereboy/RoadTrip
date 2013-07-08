@@ -59,7 +59,9 @@
   
   [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes: [NSDictionary dictionaryWithObject:[UIColor yellowColor]  forKey:UITextAttributeTextColor] forState:UIControlStateNormal];
 
-  
+  [[UIButton appearanceWhenContainedIn:[UIAlertView class], nil] setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal];
+ 
+  [[UIToolbar appearance] setBarStyle:UIBarStyleBlack];
   
   
   return YES;
