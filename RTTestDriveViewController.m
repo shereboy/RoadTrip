@@ -16,6 +16,8 @@
 
 @synthesize TestTextBox;
 @synthesize TestTextBox2;
+@synthesize TestTextBox3;
+@synthesize TestImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,6 +48,22 @@
 
 - (IBAction)TestDriveButton:(id)sender {
 }
+- (IBAction)ShowHideToogle:(id)sender {
+  
+  if (TestImageView.hidden)
+   TestImageView.hidden = false;
+  else
+    TestImageView.hidden = true;
+}
+
+- (IBAction)TFValueChanged:(id)sender
+{
+  //NSLog(sender);
+  NSLog(@"value changed");
+  
+  UITextField *tf = (UITextField *) sender;
+  NSLog(tf.text);
+}
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField
 {
@@ -60,12 +78,13 @@
 
 }
 
+
 -(IBAction)textFieldDidEndEditing:(UITextField *)textField:(id)sender
 {
   // NSLog ( @"ali " @"veli " @"49 " @"50" );
    //NSLog (textField.text);
   
-  NSLog([NSString stringWithFormat:@"%@%@%@",@"deger: ",textField.text]);
+  NSLog([NSString stringWithFormat:@"%@%@",@"deger: ",textField.text]);
 }
 
 @end

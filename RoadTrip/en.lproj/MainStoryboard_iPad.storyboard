@@ -153,8 +153,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="TFValueChanged:" destination="Yfu-Te-QTZ" eventType="editingChanged" id="ZiT-GR-apb"/>
+                                    <action selector="TFValueChanged:" destination="Yfu-Te-QTZ" eventType="valueChanged" id="k6w-Et-0rC"/>
                                     <action selector="textFieldDidBeginEditing::" destination="Yfu-Te-QTZ" eventType="editingDidBegin" id="IKp-Rj-7JM"/>
-                                    <action selector="textFieldDidBeginEditing::" destination="Yfu-Te-QTZ" eventType="valueChanged" id="QL5-s2-vXA"/>
                                     <action selector="textFieldDidEndEditing::" destination="Yfu-Te-QTZ" eventType="editingDidEnd" id="9tS-Vh-Ppu"/>
                                     <outlet property="delegate" destination="Yfu-Te-QTZ" id="oCQ-tb-RQA"/>
                                 </connections>
@@ -175,14 +176,42 @@
                                     <outlet property="delegate" destination="Yfu-Te-QTZ" id="hso-Vi-3Ps"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="G93-ec-GNT">
+                                <rect key="frame" x="57" y="135" width="100" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Show-hide">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="ShowHideToogle:" destination="Yfu-Te-QTZ" eventType="touchUpInside" id="FWR-Jy-rz4"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="MyTestImage" image="CarImage.png" id="wtc-sr-AAX">
+                                <rect key="frame" x="13" y="211" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="qOw-ek-2O6">
+                                <rect key="frame" x="303" y="260" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldDidEndEditing::" destination="Yfu-Te-QTZ" eventType="editingDidEnd" id="KV7-Aj-5yV"/>
+                                    <outlet property="delegate" destination="Yfu-Te-QTZ" id="0m1-ua-HZA"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Test Drive" id="YgG-2q-V9W"/>
                     <connections>
-                        <outlet property="TestTextBox" destination="MB8-lm-kIz" id="W3M-fp-Dun"/>
-                        <outlet property="TestTextBox2" destination="Sz5-E8-JO7" id="5YB-f0-IqQ"/>
+                        <outlet property="TestImageView" destination="wtc-sr-AAX" id="jJ0-14-1iZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsI-E9-NE4" userLabel="First Responder" sceneMemberID="firstResponder"/>

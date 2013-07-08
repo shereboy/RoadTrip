@@ -11,6 +11,9 @@
 @interface RTTestDriveViewController : UIViewController<UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *TestTextBox;
 @property (strong, nonatomic) IBOutlet UITextField *TestTextBox2;
+@property (strong, nonatomic) IBOutlet UITextField *TestTextBox3;
+@property (strong, nonatomic) IBOutlet UIImageView *TestImageView;
+
  - (IBAction)TestDriveButton:(id)sender;
 
 @end
