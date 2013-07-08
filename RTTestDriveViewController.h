@@ -10,6 +10,7 @@
 
 @interface RTTestDriveViewController : UIViewController<UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *TestTextBox;
-- (IBAction)TestDriveButton:(id)sender;
+@property (strong, nonatomic) IBOutlet UITextField *TestTextBox2;
+ - (IBAction)TestDriveButton:(id)sender;
 
 @end

@@ -15,6 +15,7 @@
 @implementation RTTestDriveViewController
 
 @synthesize TestTextBox;
+@synthesize TestTextBox2;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +30,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+  
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -44,6 +46,7 @@
 
 - (IBAction)TestDriveButton:(id)sender {
 }
+
 - (BOOL) textFieldShouldReturn:(UITextField *)textField
 {
   [textField resignFirstResponder];

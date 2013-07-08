@@ -148,12 +148,12 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="MB8-lm-kIz">
-                                <rect key="frame" x="302" y="108" width="97" height="30"/>
+                                <rect key="frame" x="303" y="108" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="Yfu-Te-QTZ" id="7vI-VV-TAW"/>
+                                    <outlet property="delegate" destination="Yfu-Te-QTZ" id="oCQ-tb-RQA"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tnV-KL-Kbr">
@@ -163,6 +163,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Sz5-E8-JO7">
+                                <rect key="frame" x="302" y="188" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Yfu-Te-QTZ" id="hso-Vi-3Ps"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -170,6 +179,7 @@
                     <navigationItem key="navigationItem" title="Test Drive" id="YgG-2q-V9W"/>
                     <connections>
                         <outlet property="TestTextBox" destination="MB8-lm-kIz" id="W3M-fp-Dun"/>
+                        <outlet property="TestTextBox2" destination="Sz5-E8-JO7" id="5YB-f0-IqQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsI-E9-NE4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -197,6 +207,25 @@
         <image name="CarImage.png" width="50" height="100"/>
         <image name="SeeTheUSA_iPad.png" width="574" height="768"/>
     </resources>
+    <classes>
+        <class className="RTDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RTDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RTMasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RTMasterViewController.h"/>
+        </class>
+        <class className="RTTestDriveViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RTTestDriveViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="TestDriveButton:"/>
+                <relationship kind="outlet" name="TestTextBox" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="TestTextBox2" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
