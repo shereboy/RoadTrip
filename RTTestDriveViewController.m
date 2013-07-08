@@ -7,6 +7,9 @@
 //
 
 #import "RTTestDriveViewController.h"
+#import "RTAppDelegate.h"
+
+
 
 @interface RTTestDriveViewController ()
 
@@ -14,10 +17,14 @@
 
 @implementation RTTestDriveViewController
 
+#pragma mark - Properties
+
 @synthesize TestTextBox;
 @synthesize TestTextBox2;
 @synthesize TestTextBox3;
 @synthesize TestImageView;
+
+#pragma mark - Methods
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +40,10 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
   
+  RTAppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+  
+  Device* myTestDevice = [appDelegate myDevice];
+  
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -46,15 +57,7 @@
   // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)TestDriveButton:(id)sender {
-}
-- (IBAction)ShowHideToogle:(id)sender {
-  
-  if (TestImageView.hidden)
-   TestImageView.hidden = false;
-  else
-    TestImageView.hidden = true;
-}
+
 
 - (IBAction)TFValueChanged:(id)sender
 {
@@ -71,18 +74,31 @@
   return YES;
 }
 
+
+
+#pragma mark - Custom Methods
+
+- (IBAction)TestDriveButton:(id)sender {
+}
+- (IBAction)ShowHideToogle:(id)sender {
+  
+  if (TestImageView.hidden)
+    TestImageView.hidden = false;
+  else
+    TestImageView.hidden = true;
+}
+
 -(IBAction)textFieldDidBeginEditing:(UITextField *)textField:(id)sender
 {
   // NSLog ((UITextField *)id . value);
   NSLog(@"text field is being edited");
-
+  
 }
-
 
 -(IBAction)textFieldDidEndEditing:(UITextField *)textField:(id)sender
 {
   // NSLog ( @"ali " @"veli " @"49 " @"50" );
-   //NSLog (textField.text);
+  //NSLog (textField.text);
   
   NSLog([NSString stringWithFormat:@"%@%@",@"deger: ",textField.text]);
 }

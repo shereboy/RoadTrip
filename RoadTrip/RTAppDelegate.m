@@ -7,8 +7,11 @@
 //
 
 #import "RTAppDelegate.h"
+#import "Reachability.h"
 
 @implementation RTAppDelegate
+
+@synthesize myDevice;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -19,7 +22,19 @@
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     splitViewController.delegate = (id)navigationController.topViewController;
   }
-  return TRUE;
+  
+  
+  NetworkStatus networkStatus = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
+  
+  if (networkStatus == NotReachable)
+  {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"internete bagli degil" message:@"Internet Baglantisi Gerekiyor" delegate:nil cancelButtonTitle:@"Tamam" otherButtonTitles: nil];
+    [alert show];
+  
+  }
+  
+  return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

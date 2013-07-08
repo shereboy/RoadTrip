@@ -51,6 +51,8 @@
 		2F5075A8178593520010910A /* tolga114.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F5075A7178593520010910A /* tolga114.png */; };
 		2F5075AA1785935B0010910A /* tolga72.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F5075A91785935B0010910A /* tolga72.png */; };
 		2F5075AC1785935F0010910A /* tolga144.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F5075AB1785935F0010910A /* tolga144.png */; };
+		2F899C3B178B0381002139A2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F899C3A178B0381002139A2 /* Reachability.m */; };
+		2F899C3D178B03C5002139A2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F899C3C178B03C5002139A2 /* SystemConfiguration.framework */; };
 		2FC980451786FC3E003E13C0 /* RTTestDriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC980441786FC3E003E13C0 /* RTTestDriveViewController.m */; };
 		2FC9805317870615003E13C0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC9805217870615003E13C0 /* CoreData.framework */; };
 		2FC9806E17871348003E13C0 /* RTDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9806D17871348003E13C0 /* RTDevice.m */; };
@@ -108,6 +110,9 @@
 		2F5075A7178593520010910A /* tolga114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tolga114.png; sourceTree = "<group>"; };
 		2F5075A91785935B0010910A /* tolga72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tolga72.png; sourceTree = "<group>"; };
 		2F5075AB1785935F0010910A /* tolga144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tolga144.png; sourceTree = "<group>"; };
+		2F899C39178B0381002139A2 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		2F899C3A178B0381002139A2 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		2F899C3C178B03C5002139A2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2FC980431786FC3E003E13C0 /* RTTestDriveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTTestDriveViewController.h; path = ../RTTestDriveViewController.h; sourceTree = "<group>"; };
 		2FC980441786FC3E003E13C0 /* RTTestDriveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTTestDriveViewController.m; path = ../RTTestDriveViewController.m; sourceTree = "<group>"; };
 		2FC9805217870615003E13C0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -122,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F899C3D178B03C5002139A2 /* SystemConfiguration.framework in Frameworks */,
 				2FC9805317870615003E13C0 /* CoreData.framework in Frameworks */,
 				2F50751F178565280010910A /* UIKit.framework in Frameworks */,
 				2F507521178565280010910A /* Foundation.framework in Frameworks */,
@@ -161,6 +167,7 @@
 		2F50751D178565280010910A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2F899C3C178B03C5002139A2 /* SystemConfiguration.framework */,
 				2FC9805217870615003E13C0 /* CoreData.framework */,
 				2F50751E178565280010910A /* UIKit.framework */,
 				2F507520178565280010910A /* Foundation.framework */,
@@ -201,6 +208,8 @@
 				2F507530178565280010910A /* Default.png */,
 				2F507532178565280010910A /* Default@2x.png */,
 				2F507534178565280010910A /* Default-568h@2x.png */,
+				2F899C39178B0381002139A2 /* Reachability.h */,
+				2F899C3A178B0381002139A2 /* Reachability.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -341,6 +350,7 @@
 				2FC980451786FC3E003E13C0 /* RTTestDriveViewController.m in Sources */,
 				2FC9806E17871348003E13C0 /* RTDevice.m in Sources */,
 				2FC98071178714BA003E13C0 /* RTBrand.m in Sources */,
+				2F899C3B178B0381002139A2 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

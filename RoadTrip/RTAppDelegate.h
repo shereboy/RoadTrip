@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Device;
 
 @interface RTAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property Device *myDevice;
 
 @end

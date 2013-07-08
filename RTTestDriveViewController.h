@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface RTTestDriveViewController : UIViewController<UITextFieldDelegate>
-@property (strong, nonatomic) IBOutlet UITextField *TestTextBox;
+@property (retain, nonatomic) IBOutlet UITextField *TestTextBox;
 @property (strong, nonatomic) IBOutlet UITextField *TestTextBox2;
 @property (strong, nonatomic) IBOutlet UITextField *TestTextBox3;
 @property (strong, nonatomic) IBOutlet UIImageView *TestImageView;
+@property (readonly) int ImageSize;
 
  - (IBAction)TestDriveButton:(id)sender;
 
