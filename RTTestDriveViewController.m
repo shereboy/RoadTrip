@@ -8,6 +8,7 @@
 
 #import "RTTestDriveViewController.h"
 #import "RTAppDelegate.h"
+#import "Constants.h"
 
 
 
@@ -23,6 +24,8 @@
 @synthesize TestTextBox2;
 @synthesize TestTextBox3;
 @synthesize TestImageView;
+@synthesize testDriveButton;
+@synthesize car;
 
 #pragma mark - Methods
 
@@ -40,15 +43,20 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
   
+  
+  // App delegatedeki objeyi init edip burdan kullaniyoruz.
   RTAppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
   
   Device* myTestDevice = [appDelegate myDevice];
+  
+  NSLog(TrophyAssetFolder);
   
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
   NSLog(@"Test Drive View Appeared");
+  self.title = @"Test Drive Title";
 }
 
 - (void)didReceiveMemoryWarning

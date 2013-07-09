@@ -29,6 +29,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  self.title = @"Road Trip Title";
 }
 
 - (void)viewDidAppear:(BOOL)animated

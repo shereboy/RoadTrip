@@ -13,6 +13,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *TestTextBox2;
 @property (strong, nonatomic) IBOutlet UITextField *TestTextBox3;
 @property (strong, nonatomic) IBOutlet UIImageView *TestImageView;
+
+@property (strong, nonatomic) IBOutlet UIButton *testDriveButton;
+@property (strong, nonatomic) IBOutlet UIImageView *car;
+
 @property (readonly) int ImageSize;
 
  - (IBAction)TestDriveButton:(id)sender;

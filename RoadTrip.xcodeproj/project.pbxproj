@@ -113,6 +113,7 @@
 		2F899C39178B0381002139A2 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		2F899C3A178B0381002139A2 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		2F899C3C178B03C5002139A2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		2F899C3E178BEE9E002139A2 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		2FC980431786FC3E003E13C0 /* RTTestDriveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTTestDriveViewController.h; path = ../RTTestDriveViewController.h; sourceTree = "<group>"; };
 		2FC980441786FC3E003E13C0 /* RTTestDriveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTTestDriveViewController.m; path = ../RTTestDriveViewController.m; sourceTree = "<group>"; };
 		2FC9805217870615003E13C0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -179,8 +180,7 @@
 		2F507524178565280010910A /* RoadTrip */ = {
 			isa = PBXGroup;
 			children = (
-				2FC980431786FC3E003E13C0 /* RTTestDriveViewController.h */,
-				2FC980441786FC3E003E13C0 /* RTTestDriveViewController.m */,
+				2F899C40178BF6C8002139A2 /* View Controller Classes */,
 				2F50752D178565280010910A /* RTAppDelegate.h */,
 				2F50752E178565280010910A /* RTAppDelegate.m */,
 				2F507536178565280010910A /* MainStoryboard_iPhone.storyboard */,
@@ -194,6 +194,7 @@
 				2FC9806D17871348003E13C0 /* RTDevice.m */,
 				2FC9806F178714BA003E13C0 /* RTBrand.h */,
 				2FC98070178714BA003E13C0 /* RTBrand.m */,
+				2F899C3E178BEE9E002139A2 /* Constants.h */,
 			);
 			path = RoadTrip;
 			sourceTree = "<group>";
@@ -242,6 +243,15 @@
 				2F50758117858EEB0010910A /* SFImage_iPhone.png */,
 			);
 			path = "RoadTrip Resources";
+			sourceTree = "<group>";
+		};
+		2F899C40178BF6C8002139A2 /* View Controller Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2FC980441786FC3E003E13C0 /* RTTestDriveViewController.m */,
+				2FC980431786FC3E003E13C0 /* RTTestDriveViewController.h */,
+			);
+			name = "View Controller Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
