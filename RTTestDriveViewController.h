@@ -19,6 +19,6 @@
 
 @property (readonly) int ImageSize;
 
- - (IBAction)TestDriveButton:(id)sender;
+ - (IBAction)TestDrive:(id)sender;
 
 @end

@@ -86,8 +86,51 @@
 
 #pragma mark - Custom Methods
 
-- (IBAction)TestDriveButton:(id)sender {
+- (IBAction)TestDrive:(id)sender {
+  
+  CGPoint center = CGPointMake(self.car.center.x, self.view.frame.origin.y + self.car.frame.size.height/2);
+  
+ NSLog([
+        NSString stringWithFormat:@"%@%f%@%f%@%f",@"koordinatlar; \nx: ",
+        self.car.center.x,
+        @"\norigin_y: ",
+        self.view.frame.origin.y,
+        @"\ncar frame size height: ",
+        self.car.frame.size.height
+        ]);
+  
+
+   [UIView animateWithDuration:3
+                   animations: ^{
+                     self.car.center = center;
+                     self.car.alpha = 0.5;
+                     self.car.transform = CGAffineTransformMakeRotation(M_PI);
+                   }
+                   completion: ^(BOOL finished) {
+                     [self rotate];
+                     //[self.car removeFromSuperview];
+                   }
+    ];
 }
+
+-(void) rotate {
+  //self.car.transform = CGAffineTransformMakeRotation(M_PI*2);
+  
+  
+  [UIView animateWithDuration:3
+                   animations: ^{
+                     self.car.transform = CGAffineTransformMakeRotation(M_PI*2);
+                   }
+                   completion: ^(BOOL finished) {
+                     [self rotate];
+                   }
+   ];
+  
+}
+
+-(void) returnCar {}
+
+-(void) continueRotation {}
 
 - (IBAction)ShowHideToogle:(id)sender {
   
