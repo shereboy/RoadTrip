@@ -41,8 +41,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-	// Do any additional setup after loading the view.
-  
+	// Do any additional setup after loading the view.  
   
   // App delegatedeki objeyi init edip burdan kullaniyoruz.
   RTAppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
@@ -50,8 +49,20 @@
   Device* myTestDevice = [appDelegate myDevice];
   
   NSLog(TrophyAssetFolder);
+
+  
+  UIButton* view =[[UIButton alloc]initWithFrame:CGRectMake(0,0,100,100)];
+  view.backgroundColor = [UIColor blackColor];
+  
+  [view addTarget:self action:@selector(rectClicked:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
+  [self.view addSubview:view];
   
 }
+
+-(IBAction)rectClicked:(id)sender{
+  NSLog(@"Rectangle Clicked");
+}
+
 
 - (void) viewDidAppear:(BOOL)animated
 {
@@ -120,9 +131,6 @@
   [UIView animateWithDuration:3
                    animations: ^{
                      self.car.transform = CGAffineTransformMakeRotation(M_PI*2);
-                   }
-                   completion: ^(BOOL finished) {
-                     [self rotate];
                    }
    ];
   
