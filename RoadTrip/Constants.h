@@ -13,9 +13,13 @@
 #define BaseAssetUrl @"http://assets.rankmost.com"
 #define TrophyAssetFolder BaseAssetUrl @"/assest/trophyImages"
 
-#define COL_COUNT 5
-#define ROW_COUNT 5
+#define ROW_COUNT 6
+#define COL_COUNT 8
+#define BOX_WIDTH 50
+#define BOX_HEIGHT 50
+#define FRAME_TOP_PADDING 10
+#define FRAME_LEFT_PADDING 10
 
-#define PageSize 10
+#define PAGE_SIZE 10
 
 #endif

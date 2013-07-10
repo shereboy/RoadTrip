@@ -54,6 +54,8 @@
 		2F899C3B178B0381002139A2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F899C3A178B0381002139A2 /* Reachability.m */; };
 		2F899C3D178B03C5002139A2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F899C3C178B03C5002139A2 /* SystemConfiguration.framework */; };
 		2F899C42178C53A8002139A2 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F899C41178C53A8002139A2 /* CoreImage.framework */; };
+		2F899C46178D8BAA002139A2 /* DPBrick.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F899C45178D8BAA002139A2 /* DPBrick.m */; };
+		2F899C4C178DB16C002139A2 /* DPMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F899C4B178DB16C002139A2 /* DPMove.m */; };
 		2FC980451786FC3E003E13C0 /* RTTestDriveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC980441786FC3E003E13C0 /* RTTestDriveViewController.m */; };
 		2FC9805317870615003E13C0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC9805217870615003E13C0 /* CoreData.framework */; };
 		2FC9806E17871348003E13C0 /* RTDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9806D17871348003E13C0 /* RTDevice.m */; };
@@ -116,6 +118,10 @@
 		2F899C3C178B03C5002139A2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2F899C3E178BEE9E002139A2 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		2F899C41178C53A8002139A2 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		2F899C44178D8BAA002139A2 /* DPBrick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPBrick.h; sourceTree = "<group>"; };
+		2F899C45178D8BAA002139A2 /* DPBrick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPBrick.m; sourceTree = "<group>"; };
+		2F899C4A178DB16C002139A2 /* DPMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPMove.h; sourceTree = "<group>"; };
+		2F899C4B178DB16C002139A2 /* DPMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPMove.m; sourceTree = "<group>"; };
 		2FC980431786FC3E003E13C0 /* RTTestDriveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTTestDriveViewController.h; path = ../RTTestDriveViewController.h; sourceTree = "<group>"; };
 		2FC980441786FC3E003E13C0 /* RTTestDriveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTTestDriveViewController.m; path = ../RTTestDriveViewController.m; sourceTree = "<group>"; };
 		2FC9805217870615003E13C0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -184,6 +190,7 @@
 		2F507524178565280010910A /* RoadTrip */ = {
 			isa = PBXGroup;
 			children = (
+				2F899C43178D8B77002139A2 /* DrawPath Classes */,
 				2F899C40178BF6C8002139A2 /* View Controller Classes */,
 				2F50752D178565280010910A /* RTAppDelegate.h */,
 				2F50752E178565280010910A /* RTAppDelegate.m */,
@@ -256,6 +263,17 @@
 				2FC980431786FC3E003E13C0 /* RTTestDriveViewController.h */,
 			);
 			name = "View Controller Classes";
+			sourceTree = "<group>";
+		};
+		2F899C43178D8B77002139A2 /* DrawPath Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2F899C44178D8BAA002139A2 /* DPBrick.h */,
+				2F899C45178D8BAA002139A2 /* DPBrick.m */,
+				2F899C4A178DB16C002139A2 /* DPMove.h */,
+				2F899C4B178DB16C002139A2 /* DPMove.m */,
+			);
+			name = "DrawPath Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +383,8 @@
 				2FC9806E17871348003E13C0 /* RTDevice.m in Sources */,
 				2FC98071178714BA003E13C0 /* RTBrand.m in Sources */,
 				2F899C3B178B0381002139A2 /* Reachability.m in Sources */,
+				2F899C46178D8BAA002139A2 /* DPBrick.m in Sources */,
+				2F899C4C178DB16C002139A2 /* DPMove.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

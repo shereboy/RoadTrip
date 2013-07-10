@@ -9,6 +9,8 @@
 #import "RTTestDriveViewController.h"
 #import "RTAppDelegate.h"
 #import "Constants.h"
+#import "DPBrick.h"
+#import "DPMove.h"
 
 
 
@@ -26,6 +28,7 @@
 @synthesize TestImageView;
 @synthesize testDriveButton;
 @synthesize car;
+@synthesize BrickStack;
 
 #pragma mark - Methods
 
@@ -40,14 +43,15 @@
 
 - (void)viewDidLoad
 {
-  
- 
-  
+
   //NSLog(@"%@%d",@"array count: ", [colorArray count]);
   
   
   [super viewDidLoad];
-	// Do any additional setup after loading the view.  
+	// Do any additional setup after loading the view.
+  
+  self.BrickStack = [[NSMutableArray alloc] init];
+  
   
   // App delegatedeki objeyi init edip burdan kullaniyoruz.
   RTAppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
@@ -55,16 +59,22 @@
   Device* myTestDevice = [appDelegate myDevice];
   
   NSLog(TrophyAssetFolder);
-
   
+  /*
   UIButton* view =[[UIButton alloc]initWithFrame:CGRectMake(0,0,50,50)];
   view.backgroundColor = [UIColor purpleColor];
   
   [view addTarget:self action:@selector(rectClicked:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
   [self.view addSubview:view];
+  */
   
-   [self drawBoard];
+  [self drawBoard];
   
+}
+                
+-(void) swipeDetected : (UISwipeGestureRecognizer *)recognizer
+{
+    NSLog(@"Swipe Detected");
 }
 
 -(void) drawBoard
@@ -78,7 +88,7 @@
       else
       {
          NSUInteger randomIndex = arc4random() % [colorArray count];
-        [self drawRectangle:i*50 :j*50 :(UIColor*) colorArray[randomIndex]];
+        [self drawRectangle:i*50+FRAME_LEFT_PADDING :j*50+FRAME_TOP_PADDING :colorArray[randomIndex]:i:j];
       }
     }
   }
@@ -87,14 +97,80 @@
 -(void) drawRectangle:(int)x
                      :(int)y
                      :(UIColor*)color
+                     :(int)rowNumber
+                     :(int)colNumber
 {
-  UIButton* view =[[UIButton alloc]initWithFrame:CGRectMake(x,y,50,50)];
+  DPBrick* view =[[DPBrick alloc]initWithFrame:CGRectMake(x,y,BOX_WIDTH,BOX_HEIGHT)];
+  view.colNumber = colNumber;
+  view.rowNumber = rowNumber;
+ 
   view.backgroundColor = color;
+  view.assignedColor = color;
   
-  [view addTarget:self action:@selector(rectClicked:) forControlEvents:UIControlEventTouchDragEnter|UIControlEventTouchDragInside|UIControlEventTouchUpOutside];
+  //[view addTarget:self action:@selector(rectClicked:) forControlEvents:UIControlEventTouchDragInside];
   [self.view addSubview:view];
 
 }
+
+-(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+  UITouch *touch = [[event allTouches] anyObject];
+  CGPoint touchLocation = [touch locationInView:self.view];
+  
+  NSLog( @"%@%f%@%f", @"Touch Oldu: ", touchLocation.x, @" - ", touchLocation.y );
+  
+  for(DPBrick *brick in self.view.subviews)
+    if(CGRectContainsPoint(brick.frame,touchLocation) &&
+       brick.backgroundColor != [UIColor blackColor] &&
+       ![self.BrickStack containsObject:brick] &&
+       [brick isKindOfClass:[DPBrick class]]
+       )
+    {
+      if([self.BrickStack count]>0)
+      {
+        DPBrick *tmpBrick = [self.BrickStack objectAtIndex:[self.BrickStack count]-1];
+        NSLog(@"%@%@%@", [self colorName:tmpBrick.assignedColor], @" - ", [self colorName:brick.assignedColor] );
+        //if (tmpBrick.assignedColor == brick.assignedColor)
+        if([DPMove isLegalMove:tmpBrick :brick])
+        {
+          
+          [self.BrickStack addObject:brick];
+          [self rectClicked:brick];
+        }
+        else
+        {
+        NSLog(@"arkaplan farkli");
+        }
+      }
+      else
+      {
+        [self.BrickStack addObject:brick];
+        [self rectClicked:brick];
+      }
+    }
+ 
+}
+-(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+  
+  [self.BrickStack removeAllObjects];
+  
+  for(DPBrick *brick in self.view.subviews)
+    if([brick isKindOfClass:[DPBrick class]])
+      brick.backgroundColor = brick.assignedColor;
+}
+
+/*-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+  UITouch *touch = [[event allTouches] anyObject];
+  CGPoint touchLocation = [touch locationInView:self.view];
+  
+  NSLog( @"%@%f%@%f", @"Touch Oldu: ", touchLocation.x, @" - ", touchLocation.y );
+  
+  for(UIButton *button in self.view.subviews)
+    if(CGRectContainsPoint(button.frame,touchLocation))
+      [self rectClicked:button];
+}*/
 
 
 
@@ -106,6 +182,13 @@
   NSString *boxColor = [CIColor colorWithCGColor:colorRef].stringRepresentation;
   NSLog(@"%@", boxColor);
   
+}
+
+-(NSString*)colorName:(UIColor*)color
+{
+  CGColorRef colorRef = color.CGColor;
+  NSString *boxColor = [CIColor colorWithCGColor:colorRef].stringRepresentation;
+  return boxColor;
 }
 
 

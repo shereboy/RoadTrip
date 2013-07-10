@@ -17,12 +17,18 @@
 @property (strong, nonatomic) IBOutlet UIButton *testDriveButton;
 @property (strong, nonatomic) IBOutlet UIImageView *car;
 
+@property (strong, nonatomic) NSMutableArray *BrickStack;
+
 @property (readonly) int ImageSize;
 
- - (IBAction)TestDrive:(id)sender;
+-(IBAction)TestDrive:(id)sender;
 -(void) drawBoard;
 -(void) drawRectangle:(int)x
                      :(int)y
-                     :(UIColor*)color;
+                     :(UIColor*)color
+                     :(int)rowNumber
+                     :(int)colNumber;
+
+-(NSString*)colorName:(UIColor*)color;
 
 @end
