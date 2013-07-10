@@ -12,6 +12,10 @@
 #define BaseApiUrl @"http://api.rankmost/com"
 #define BaseAssetUrl @"http://assets.rankmost.com"
 #define TrophyAssetFolder BaseAssetUrl @"/assest/trophyImages"
+
+#define COL_COUNT 5
+#define ROW_COUNT 5
+
 #define PageSize 10
 
 #endif

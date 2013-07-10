@@ -20,5 +20,9 @@
 @property (readonly) int ImageSize;
 
  - (IBAction)TestDrive:(id)sender;
+-(void) drawBoard;
+-(void) drawRectangle:(int)x
+                     :(int)y
+                     :(UIColor*)color;
 
 @end

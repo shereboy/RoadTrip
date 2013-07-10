@@ -40,6 +40,12 @@
 
 - (void)viewDidLoad
 {
+  
+ 
+  
+  //NSLog(@"%@%d",@"array count: ", [colorArray count]);
+  
+  
   [super viewDidLoad];
 	// Do any additional setup after loading the view.  
   
@@ -51,16 +57,55 @@
   NSLog(TrophyAssetFolder);
 
   
-  UIButton* view =[[UIButton alloc]initWithFrame:CGRectMake(0,0,100,100)];
-  view.backgroundColor = [UIColor blackColor];
+  UIButton* view =[[UIButton alloc]initWithFrame:CGRectMake(0,0,50,50)];
+  view.backgroundColor = [UIColor purpleColor];
   
   [view addTarget:self action:@selector(rectClicked:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
   [self.view addSubview:view];
   
+   [self drawBoard];
+  
 }
 
+-(void) drawBoard
+{
+  NSArray* colorArray =[NSArray arrayWithObjects:[UIColor redColor],[UIColor blueColor],[UIColor greenColor],[UIColor yellowColor],[UIColor orangeColor], nil];
+
+  for (int i = 0; i<ROW_COUNT ; i++) {
+    for (int j = 0; j<COL_COUNT; j++)
+    {
+    if (j !=0 && j%COL_COUNT == 0) continue;
+      else
+      {
+         NSUInteger randomIndex = arc4random() % [colorArray count];
+        [self drawRectangle:i*50 :j*50 :(UIColor*) colorArray[randomIndex]];
+      }
+    }
+  }
+}
+
+-(void) drawRectangle:(int)x
+                     :(int)y
+                     :(UIColor*)color
+{
+  UIButton* view =[[UIButton alloc]initWithFrame:CGRectMake(x,y,50,50)];
+  view.backgroundColor = color;
+  
+  [view addTarget:self action:@selector(rectClicked:) forControlEvents:UIControlEventTouchDragEnter|UIControlEventTouchDragInside|UIControlEventTouchUpOutside];
+  [self.view addSubview:view];
+
+}
+
+
+
 -(IBAction)rectClicked:(id)sender{
-  NSLog(@"Rectangle Clicked");
+  
+  UIButton *button = (UIButton *) sender;
+  button.backgroundColor= [UIColor blackColor];
+  CGColorRef colorRef = button.backgroundColor.CGColor;
+  NSString *boxColor = [CIColor colorWithCGColor:colorRef].stringRepresentation;
+  NSLog(@"%@", boxColor);
+  
 }
 
 
