@@ -29,6 +29,9 @@
 @synthesize testDriveButton;
 @synthesize car;
 @synthesize BrickStack;
+@synthesize InitialBrickStack;
+@synthesize BrickTimer;
+
 
 #pragma mark - Methods
 
@@ -51,6 +54,7 @@
 	// Do any additional setup after loading the view.
   
   self.BrickStack = [[NSMutableArray alloc] init];
+  self.InitialBrickStack = [[NSMutableArray alloc] init];
   
   
   // App delegatedeki objeyi init edip burdan kullaniyoruz.
@@ -68,7 +72,7 @@
   [self.view addSubview:view];
   */
   
-  [self drawBoard];
+
   
 }
                 
@@ -87,12 +91,53 @@
     if (j !=0 && j%COL_COUNT == 0) continue;
       else
       {
-         NSUInteger randomIndex = arc4random() % [colorArray count];
-        [self drawRectangle:i*50+FRAME_LEFT_PADDING :j*50+FRAME_TOP_PADDING :colorArray[randomIndex]:i:j];
+        NSUInteger randomIndex = arc4random() % [colorArray count];
+        DPBrick *brick = [DPBrick alloc];
+        brick.frameX=(i*50+FRAME_LEFT_PADDING);
+        brick.frameY=(j*50+FRAME_TOP_PADDING);
+        brick.assignedColor = colorArray[randomIndex];
+        brick.rowNumber = i;
+        brick.colNumber = j;
+        [InitialBrickStack addObject:brick];
+        //[self drawRectangle:i*50+FRAME_LEFT_PADDING :j*50+FRAME_TOP_PADDING :colorArray[randomIndex]:i:j];
       }
     }
   }
+  
+  BrickTimer = [NSTimer scheduledTimerWithTimeInterval:ANIMATION_DURATION
+                                                         target:self
+                                                       selector:@selector(drawRectangleFromStack:)
+                                                       userInfo:nil
+                                                        repeats:YES
+                         ];
+  
+  /*for(DPBrick *brick in InitialBrickStack)
+    [self drawRectangle:brick.frameX:brick.frameY :brick.assignedColor:brick.rowNumber:brick.colNumber];*/
+  
 }
+
+-(void) drawRectangleFromStack :(id) sender
+{
+  NSLog(@"TIMER WORKING");
+  if ([InitialBrickStack count] > 0)
+  {
+  DPBrick *brick = [self.InitialBrickStack objectAtIndex:[self.InitialBrickStack count]-1];
+ [self drawRectangle:brick.frameX:brick.frameY :brick.assignedColor:brick.rowNumber:brick.colNumber];
+    
+
+[InitialBrickStack removeLastObject];
+  }
+  else
+  {
+  [self.BrickTimer invalidate];
+    self.BrickTimer = nil;
+  }
+
+  
+  
+  
+}
+
 
 -(void) drawRectangle:(int)x
                      :(int)y
@@ -100,17 +145,37 @@
                      :(int)rowNumber
                      :(int)colNumber
 {
-  DPBrick* view =[[DPBrick alloc]initWithFrame:CGRectMake(x,y,BOX_WIDTH,BOX_HEIGHT)];
-  view.colNumber = colNumber;
-  view.rowNumber = rowNumber;
+  DPBrick* thisBrick =[[DPBrick alloc]initWithFrame:CGRectMake(x,y,BOX_WIDTH,BOX_HEIGHT)];
+  thisBrick.colNumber = colNumber;
+  thisBrick.rowNumber = rowNumber;
  
-  view.backgroundColor = color;
-  view.assignedColor = color;
+  thisBrick.backgroundColor = color;
+  thisBrick.assignedColor = color;
+  thisBrick.alpha = 0;
+  
+  CGPoint center = CGPointMake(thisBrick.center.x,thisBrick.center.y+ANIMATION_DISTANCE);
+  
+  thisBrick.center = center;
+  
+  
+  
+  center = CGPointMake(thisBrick.center.x,thisBrick.center.y-ANIMATION_DISTANCE);
+  
+  [UIView animateWithDuration: ANIMATION_DURATION
+                   animations: ^{
+                     thisBrick.alpha = 1;
+                     thisBrick.center = center;
+                                        }
+                   completion: ^(BOOL finished) {
+                   
+                     //[self.car removeFromSuperview];
+                   }
+   ];
   
   //[view addTarget:self action:@selector(rectClicked:) forControlEvents:UIControlEventTouchDragInside];
-  [self.view addSubview:view];
-
+  [self.view addSubview:thisBrick];
 }
+
 
 -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -196,6 +261,7 @@
 {
   NSLog(@"Test Drive View Appeared");
   self.title = @"Test Drive Title";
+    [self drawBoard];
 }
 
 - (void)didReceiveMemoryWarning

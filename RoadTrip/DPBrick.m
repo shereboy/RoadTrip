@@ -13,6 +13,10 @@
 @synthesize colNumber;
 @synthesize rowNumber;
 @synthesize assignedColor;
+@synthesize frameWidth;
+@synthesize frameHeight;
+@synthesize frameX;
+@synthesize frameY;
 
 - (id)initWithFrame:(CGRect)frame
 {

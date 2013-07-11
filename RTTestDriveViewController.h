@@ -18,6 +18,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *car;
 
 @property (strong, nonatomic) NSMutableArray *BrickStack;
+@property (strong, nonatomic) NSMutableArray *InitialBrickStack;
+@property (strong, nonatomic) NSTimer *BrickTimer;
 
 @property (readonly) int ImageSize;
 
@@ -28,6 +30,8 @@
                      :(UIColor*)color
                      :(int)rowNumber
                      :(int)colNumber;
+
+-(void) drawRectangleFromStack;
 
 -(NSString*)colorName:(UIColor*)color;
 
