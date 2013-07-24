@@ -244,6 +244,29 @@
         <image name="CarImage.png" width="50" height="100"/>
         <image name="SeeTheUSA_iPad.png" width="574" height="768"/>
     </resources>
+    <classes>
+        <class className="RTDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RTDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RTMasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RTMasterViewController.h"/>
+        </class>
+        <class className="RTTestDriveViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RTTestDriveViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="TestDrive:"/>
+                <relationship kind="outlet" name="TestImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="TestTextBox" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="TestTextBox2" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="TestTextBox3" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="car" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="testDriveButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

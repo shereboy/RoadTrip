@@ -11,10 +11,18 @@
 #import "Constants.h"
 #import "DPBrick.h"
 #import "DPMove.h"
+#import "AVFoundation/AVFoundation.h"
+#import "AudioToolbox/AudioToolbox.h"
+
 
 
 
 @interface RTTestDriveViewController ()
+{
+  AVAudioPlayer *backgroundAudioPlayer;
+  SystemSoundID burnRubberSoundId;
+  NSString *hodenString;
+}
 
 @end
 
@@ -46,6 +54,13 @@
 
 - (void)viewDidLoad
 {
+  
+  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+    NSLog(@"IPAD");
+  }
+  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+    NSLog(@"IPHONE");
+  }
 
   //NSLog(@"%@%d",@"array count: ", [colorArray count]);
   
@@ -53,16 +68,19 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
   
-  self.BrickStack = [[NSMutableArray alloc] init];
-  self.InitialBrickStack = [[NSMutableArray alloc] init];
-  
-  
   // App delegatedeki objeyi init edip burdan kullaniyoruz.
-  RTAppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
   
-  Device* myTestDevice = [appDelegate myDevice];
+  NSURL* backgroundURL = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource: @"CarRunning" ofType:@"aif"]];
   
-  NSLog(TrophyAssetFolder);
+  backgroundAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundURL error:nil];
+  
+  backgroundAudioPlayer.numberOfLoops = -1;
+  [backgroundAudioPlayer prepareToPlay];
+  
+  NSURL* burnRubberURL = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource: @"BurnRubber" ofType:@"aif"]];
+  
+  AudioServicesCreateSystemSoundID((__bridge CFURLRef) burnRubberURL , &burnRubberSoundId );
+  
   
   /*
   UIButton* view =[[UIButton alloc]initWithFrame:CGRectMake(0,0,50,50)];
@@ -93,8 +111,18 @@
       {
         NSUInteger randomIndex = arc4random() % [colorArray count];
         DPBrick *brick = [DPBrick alloc];
-        brick.frameX=(i*50+FRAME_LEFT_PADDING);
-        brick.frameY=(j*50+FRAME_TOP_PADDING);
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+          brick.frameX=(j*IPAD_BOX_WIDTH+FRAME_LEFT_PADDING);
+          brick.frameY=(i*IPAD_BOX_HEIGHT+FRAME_TOP_PADDING);
+        }
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+          brick.frameX=(j*BOX_WIDTH+FRAME_LEFT_PADDING);
+          brick.frameY=(i*BOX_HEIGHT+FRAME_TOP_PADDING);
+        }
+        
+        
+     
         brick.assignedColor = colorArray[randomIndex];
         brick.rowNumber = i;
         brick.colNumber = j;
@@ -145,7 +173,16 @@
                      :(int)rowNumber
                      :(int)colNumber
 {
-  DPBrick* thisBrick =[[DPBrick alloc]initWithFrame:CGRectMake(x,y,BOX_WIDTH,BOX_HEIGHT)];
+  
+  DPBrick* thisBrick =[DPBrick alloc];
+  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+    thisBrick =[[DPBrick alloc]initWithFrame:CGRectMake(x,y,IPAD_BOX_WIDTH,IPAD_BOX_HEIGHT)];
+  }
+  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+    thisBrick =[[DPBrick alloc]initWithFrame:CGRectMake(x,y,BOX_WIDTH,BOX_HEIGHT)];
+  }
+  
+  
   thisBrick.colNumber = colNumber;
   thisBrick.rowNumber = rowNumber;
  
@@ -153,13 +190,13 @@
   thisBrick.assignedColor = color;
   thisBrick.alpha = 0;
   
-  CGPoint center = CGPointMake(thisBrick.center.x,thisBrick.center.y+ANIMATION_DISTANCE);
+  CGPoint center = CGPointMake(thisBrick.center.x,thisBrick.center.y-ANIMATION_DISTANCE);
   
   thisBrick.center = center;
   
   
   
-  center = CGPointMake(thisBrick.center.x,thisBrick.center.y-ANIMATION_DISTANCE);
+  center = CGPointMake(thisBrick.center.x,thisBrick.center.y+ANIMATION_DISTANCE);
   
   [UIView animateWithDuration: ANIMATION_DURATION
                    animations: ^{
@@ -261,7 +298,7 @@
 {
   NSLog(@"Test Drive View Appeared");
   self.title = @"Test Drive Title";
-    [self drawBoard];
+ //   [self drawBoard];
 }
 
 - (void)didReceiveMemoryWarning
@@ -291,7 +328,16 @@
 
 #pragma mark - Custom Methods
 
+-(void) playCarSound
+{
+  [backgroundAudioPlayer play];
+}
+
 - (IBAction)TestDrive:(id)sender {
+  
+  AudioServicesPlaySystemSound(burnRubberSoundId);
+  
+  [self performSelector:@selector(playCarSound) withObject:self afterDelay:.2];
   
   CGPoint center = CGPointMake(self.car.center.x, self.view.frame.origin.y + self.car.frame.size.height/2);
   
